@@ -1,5 +1,7 @@
 package com.wdf.witness.entity;
 
+import java.io.Serializable;
+
 /**
  * @author by liuguangjin
  * @Description TODO
@@ -7,7 +9,7 @@ package com.wdf.witness.entity;
  */
 
 
-public class Users {
+public class Users implements Serializable {
 
     /**
      * 用户id

@@ -6,8 +6,8 @@
         select uid,`name`,password,mail,url from users
     </select>
 
-    <select id="findById" resultType="com.wdf.witness.entity.Users">
-        select uid,`name`,password,mail,url from users where uid=#{uid};
+    <select id="findOne" resultType="com.wdf.witness.entity.Users">
+        select uid,`name`,password,mail,url from users where uid = #{uid} and `name` = #{name};
     </select>
 
     <insert id="addUser" parameterType="com.wdf.witness.entity.Users">

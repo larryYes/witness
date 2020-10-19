@@ -1,6 +1,7 @@
 package com.wdf.witness.dao;
 
 import com.wdf.witness.entity.Users;
+import com.wdf.witness.entity.req.UsersReqDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -22,8 +23,8 @@ public interface UsersDao {
     List<Users> findAll();
 
     /**
-     * 插入操作
+     * 查询指定用户
      */
-    int addUser(Users users);
+    Users findOne(UsersReqDto usersReqDto);
 
 }

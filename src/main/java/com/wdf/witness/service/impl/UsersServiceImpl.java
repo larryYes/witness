@@ -2,6 +2,7 @@ package com.wdf.witness.service.impl;
 
 import com.wdf.witness.dao.UsersDao;
 import com.wdf.witness.entity.Users;
+import com.wdf.witness.entity.req.UsersReqDto;
 import com.wdf.witness.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,11 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public List<Users> findAll(){
         return usersDao.findAll();
+    }
+
+    @Override
+    public Users findOne(UsersReqDto usersReqDto){
+        return usersDao.findOne(usersReqDto);
     }
 
 }

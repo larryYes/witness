@@ -1,6 +1,7 @@
 package com.wdf.witness.service;
 
 import com.wdf.witness.entity.Users;
+import com.wdf.witness.entity.req.UsersReqDto;
 
 import java.util.List;
 
@@ -19,4 +20,8 @@ public interface UsersService {
      */
     List<Users> findAll();
 
+    /**
+     * 查询指定用户
+     */
+    Users findOne(UsersReqDto usersReqDto);
 }

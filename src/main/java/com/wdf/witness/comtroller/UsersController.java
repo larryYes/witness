@@ -1,6 +1,7 @@
 package com.wdf.witness.comtroller;
 
 import com.wdf.witness.entity.Users;
+import com.wdf.witness.entity.req.UsersReqDto;
 import com.wdf.witness.service.UsersService;
 import com.wdf.witness.utils.Result;
 import com.wdf.witness.utils.StatusCode;
@@ -8,9 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +34,12 @@ public class UsersController {
         return new Result(true, StatusCode.OK,StatusCode.select,allUsers);
     }
 
+    @GetMapping("/findOne")
+    public Result findOne(@RequestBody UsersReqDto usersReqDto){
+        System.out.println(usersReqDto.getUid());
+        Users user = usersService.findOne(usersReqDto);
+        return new Result(true, StatusCode.OK,StatusCode.select,user);
+    }
 
 
 }
