@@ -58,4 +58,5 @@ public class StatusCode {
     public static final String update ="更新成功";
 
 
+    public static final String APPLICATION_JSON_UTF8_VALUE = "application/json;charset=UTF-8";
 }
