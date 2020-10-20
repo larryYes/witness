@@ -5,12 +5,11 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @author by liuguangjin
- * @Description 用户请求体封装
- * @Date 20/10/19 16:28
+ * @Description TODO
+ * @Date 20/10/20 11:21
  */
-
-@ApiModel(description = "用户接口入参")
-public class UsersReqDto {
+@ApiModel(description = "更新用户接口入参")
+public class UpdateUsersReqDto {
 
     @ApiModelProperty(value = "用户ID")
     private String uid;
@@ -18,16 +17,18 @@ public class UsersReqDto {
     @ApiModelProperty(value = "用户名")
     private String name;
 
-    public UsersReqDto() {
-    }
-    public UsersReqDto(String name) {
-        this.name = name;
-    }
-    public UsersReqDto(String uid, String name) {
-        this.uid = uid;
-        this.name = name;
+    @ApiModelProperty(value = "用户密码")
+    private String password;
+
+
+
+    public String getPassword() {
+        return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getUid() {
         return uid;
@@ -47,9 +48,10 @@ public class UsersReqDto {
 
     @Override
     public String toString() {
-        return "UsersReqDto{" +
+        return "UpdateUsersReqDto{" +
                 "uid='" + uid + '\'' +
                 ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

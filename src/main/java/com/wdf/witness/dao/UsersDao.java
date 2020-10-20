@@ -1,7 +1,8 @@
 package com.wdf.witness.dao;
 
 import com.wdf.witness.entity.Users;
-import com.wdf.witness.entity.req.UsersReqDto;
+import com.wdf.witness.entity.req.SelectUsersReqDto;
+import com.wdf.witness.entity.req.UpdateUsersReqDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -24,21 +25,26 @@ public interface UsersDao {
 
     /**
      * 查询指定用户
+     * @param selectUsersReqDto
+     * @return
      */
-    Users findOne(UsersReqDto usersReqDto);
+    Users findOne(SelectUsersReqDto selectUsersReqDto);
 
     /**
      * 新增用户
+     * @param user
      */
     void addUser(Users user);
 
     /**
      * 更新用户
+     * @param updateUsersReqDto
      */
-    int updateUser(Users user);
+    void updateUser(UpdateUsersReqDto updateUsersReqDto);
 
     /**
      * 删除用户
+     * @param id
      */
     void removeUser(Integer id);
 }

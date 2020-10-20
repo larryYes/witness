@@ -2,10 +2,10 @@ package com.wdf.witness.service.impl;
 
 import com.wdf.witness.dao.UsersDao;
 import com.wdf.witness.entity.Users;
-import com.wdf.witness.entity.req.UsersReqDto;
+import com.wdf.witness.entity.req.SelectUsersReqDto;
+import com.wdf.witness.entity.req.UpdateUsersReqDto;
 import com.wdf.witness.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,8 +28,8 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public Users findOne(UsersReqDto usersReqDto){
-        return usersDao.findOne(usersReqDto);
+    public Users findOne(SelectUsersReqDto selectUsersReqDto){
+        return usersDao.findOne(selectUsersReqDto);
     }
 
     @Override
@@ -37,10 +37,10 @@ public class UsersServiceImpl implements UsersService {
         usersDao.addUser(user);
     }
 
-    //@Override
-    //public int updateUser(Users user){
-    //    return
-    //}
+    @Override
+    public void updateUser(UpdateUsersReqDto updateUsersReqDto){
+        usersDao.updateUser(updateUsersReqDto);
+    }
 
     @Override
     public void removeUser(Integer id){
