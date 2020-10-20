@@ -6,9 +6,18 @@
         select uid,`name`,password,mail,url from users
     </select>
 
+    <!--条件查询-->
     <select id="findOne" resultType="com.wdf.witness.entity.Users">
-        select uid,`name`,password,mail,url from users where uid = #{uid} and `name` = #{name};
+        select uid,`name`,password,mail,url from users
+
+        <where>
+            <if test="uid!=null">uid = #{uid}</if>
+            <if test="name!=null">and `name` like '%${name}%'</if>
+        </where>
+
     </select>
+
+
 
     <insert id="addUser" parameterType="com.wdf.witness.entity.Users">
         insert into users(uid,`name`,password,mail,url)

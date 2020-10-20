@@ -21,7 +21,7 @@ import java.util.List;
 
 @Api(tags = "用户接口")
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UsersController {
 
     @Autowired
@@ -36,7 +36,11 @@ public class UsersController {
 
     @GetMapping("/findOne")
     public Result findOne(@RequestBody UsersReqDto usersReqDto){
+
+        //test
         System.out.println(usersReqDto.getUid());
+        System.out.println(usersReqDto.getName());
+
         Users user = usersService.findOne(usersReqDto);
         return new Result(true, StatusCode.OK,StatusCode.select,user);
     }
