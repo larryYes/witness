@@ -1,5 +1,7 @@
 package com.wdf.witness.entity;
 
+import io.swagger.annotations.ApiModel;
+
 import java.io.Serializable;
 
 /**
@@ -8,12 +10,12 @@ import java.io.Serializable;
  * @Date 20/10/19 14:36
  */
 
-
 public class Users implements Serializable {
 
     /**
      * 用户id
      */
+
     private Integer uid;
 
     /**

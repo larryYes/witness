@@ -1,5 +1,9 @@
 package com.wdf.witness.utils;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -7,27 +11,24 @@ import java.io.Serializable;
  * @Description 通用结果集
  * @Date 20/10/19 15:43
  */
-
+@ApiModel(value = "Result", description = "返回结果集")
 public class Result {
 
-    /**
-     * 是否正确
-     */
+
+    @ApiModelProperty(value = "是否正确")
     private Boolean flag;
 
-    /**
-     *结果代码
-     */
+    @ApiModelProperty(value = "结果代码")
     private Integer code;
 
-    /**
-     *输出消息
-     */
+
+    @ApiModelProperty(value = "输出消息")
     private String message;
 
     /**
      * 利用Object类来接收对象
      */
+    @ApiModelProperty(value = "对象结果")
     private Object data;
 
     /**

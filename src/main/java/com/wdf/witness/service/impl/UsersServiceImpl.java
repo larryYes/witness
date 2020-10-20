@@ -5,6 +5,7 @@ import com.wdf.witness.entity.Users;
 import com.wdf.witness.entity.req.UsersReqDto;
 import com.wdf.witness.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,4 +32,18 @@ public class UsersServiceImpl implements UsersService {
         return usersDao.findOne(usersReqDto);
     }
 
+    @Override
+    public void addUser(Users user){
+        usersDao.addUser(user);
+    }
+
+    //@Override
+    //public int updateUser(Users user){
+    //    return
+    //}
+
+    @Override
+    public void removeUser(Integer id){
+        usersDao.removeUser(id);
+    }
 }

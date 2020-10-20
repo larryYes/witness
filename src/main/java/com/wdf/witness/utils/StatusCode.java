@@ -1,25 +1,33 @@
 package com.wdf.witness.utils;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * @author by liuguangjin
  * @Description 状态码维护类
  * @Date 20/10/19 15:06
  */
+
+@ApiModel(value = "StatusCode", description = "状态码维护类")
 public class StatusCode {
 
     /**
      * 成功
      */
+    @ApiModelProperty(value = "成功")
     public static final int OK=970314;
 
     /**
      * 失败
      */
+    @ApiModelProperty(value = "失败")
     public static final int ERROR =20001;
 
     /**
      * 用户名或密码错误
      */
+    @ApiModelProperty(value = "用户名或密码错误")
     public static final int LOGINERROR =20002;
 
     /**
@@ -36,6 +44,9 @@ public class StatusCode {
      * 重复操作
      */
     public static final int REPERROR =20005;
+
+    @ApiModelProperty(value = "为空")
+    public static final int  ISEMPTY =20006;
 
     /**
      * 新增成功
