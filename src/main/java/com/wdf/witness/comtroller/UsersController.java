@@ -79,9 +79,13 @@ public class UsersController {
     }
 
     @ApiOperation(value = "删除用户", produces = StatusCode.APPLICATION_JSON_UTF8_VALUE, httpMethod = "GET",response = Result.class)
-    @DeleteMapping("deleteUser")
-    public Result deleteUser(){
-        return usersService.removeUser();
+    @DeleteMapping("deleteUser/{id}")
+    public Result deleteUser(@PathVariable Integer id){
+
+        //暂停使用删除功能
+        //usersService.removeUser(id);
+
+        return new Result(true,StatusCode.OK,"删除功能停用");
     }
 
 

@@ -21,7 +21,6 @@ public class Result {
     @ApiModelProperty(value = "结果代码")
     private Integer code;
 
-
     @ApiModelProperty(value = "输出消息")
     private String message;
 
@@ -30,6 +29,13 @@ public class Result {
      */
     @ApiModelProperty(value = "对象结果")
     private Object data;
+
+    /*
+    public static Result addSuccess(){
+        //Result r = new Result();
+        return new Result(true,StatusCode.OK,StatusCode.Add);
+    }
+    */
 
     /**
      * 三个构造方法

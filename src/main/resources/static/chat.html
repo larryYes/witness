@@ -1,0 +1,1142 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>留言板 - 豆腐蒸锅</title>
+
+        <!-- Favicon -->
+        <link href="https://tntofu.com/usr/uploads/2020/07/2045542828.png" rel="icon" type="image/png">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+        <!-- FontAwesome -->
+        <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- Main CSS -->
+        <link type="text/css" href="https://tntofu.com/usr/themes/Bubble/assets/css/main.min.css" rel="stylesheet">
+
+        <!-- KaTeX CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+
+        <!-- PrismJS CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-okaidia.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/toolbar/prism-toolbar.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/line-numbers/prism-line-numbers.css" />
+
+        <!-- Viewer CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/viewerjs/dist/viewer.min.css" />
+
+        <!-- Jquery -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+        <!-- Custom CSS -->
+        <!-- Viewer.js Plugin -->
+        <script src="https://cdn.jsdelivr.net/npm/viewerjs/dist/viewer.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/fengyuanchen/jquery-viewer@master/dist/jquery-viewer.min.js"></script>
+        <!-- Typecho header -->
+        <meta name="description" content="这是一块留言板，你可以在这里给我留言请不要发送包括但不限于以下的违禁内容：无意义发言脏话、粗话广告推广政治类讨论" />
+        <meta name="generator" content="Typecho 1.2/18.1.29" />
+        <meta name="template" content="Bubble" />
+        <link rel="pingback" href="https://tntofu.com/action/xmlrpc" />
+        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://tntofu.com/action/xmlrpc?rsd" />
+        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://tntofu.com/action/xmlrpc?wlw" />
+        <link rel="alternate" type="application/rss+xml" title="留言板 &raquo; 豆腐蒸锅 &raquo; RSS 2.0" href="https://tntofu.com/feed/chat.html" />
+        <link rel="alternate" type="application/rdf+xml" title="留言板 &raquo; 豆腐蒸锅 &raquo; RSS 1.0" href="https://tntofu.com/feed/rss/chat.html" />
+        <link rel="alternate" type="application/atom+xml" title="留言板 &raquo; 豆腐蒸锅 &raquo; ATOM 1.0" href="https://tntofu.com/feed/atom/chat.html" />
+        <script type="text/javascript">
+            (function () {
+                window.TypechoComment = {
+                    dom : function (id) {
+                        return document.getElementById(id);
+                    },
+
+                    create : function (tag, attr) {
+                        var el = document.createElement(tag);
+
+                        for (var key in attr) {
+                            el.setAttribute(key, attr[key]);
+                        }
+
+                        return el;
+                    },
+
+                    reply : function (cid, coid) {
+                        var comment = this.dom(cid), parent = comment.parentNode,
+                            response = this.dom('respond-page-34'), input = this.dom('comment-parent'),
+                            form = 'form' == response.tagName ? response : response.getElementsByTagName('form')[0],
+                            textarea = response.getElementsByTagName('textarea')[0];
+
+                        if (null == input) {
+                            input = this.create('input', {
+                                'type' : 'hidden',
+                                'name' : 'parent',
+                                'id'   : 'comment-parent'
+                            });
+
+                            form.appendChild(input);
+                        }
+
+                        input.setAttribute('value', coid);
+
+                        if (null == this.dom('comment-form-place-holder')) {
+                            var holder = this.create('div', {
+                                'id' : 'comment-form-place-holder'
+                            });
+
+                            response.parentNode.insertBefore(holder, response);
+                        }
+
+                        comment.appendChild(response);
+                        this.dom('cancel-comment-reply-link').style.display = '';
+
+                        if (null != textarea && 'text' == textarea.name) {
+                            textarea.focus();
+                        }
+
+                        return false;
+                    },
+
+                    cancelReply : function () {
+                        var response = this.dom('respond-page-34'),
+                            holder = this.dom('comment-form-place-holder'), input = this.dom('comment-parent');
+
+                        if (null != input) {
+                            input.parentNode.removeChild(input);
+                        }
+
+                        if (null == holder) {
+                            return true;
+                        }
+
+                        this.dom('cancel-comment-reply-link').style.display = 'none';
+                        holder.parentNode.insertBefore(response, holder);
+                        return false;
+                    }
+                };
+            })();
+        </script>
+        <script type="text/javascript">
+            (function () {
+                var event = document.addEventListener ? {
+                    add: 'addEventListener',
+                    triggers: ['scroll', 'mousemove', 'keyup', 'touchstart'],
+                    load: 'DOMContentLoaded'
+                } : {
+                    add: 'attachEvent',
+                    triggers: ['onfocus', 'onmousemove', 'onkeyup', 'ontouchstart'],
+                    load: 'onload'
+                }, added = false;
+
+                document[event.add](event.load, function () {
+                    var r = document.getElementById('respond-page-34'),
+                        input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = '_';
+                    input.value = (function () {
+                        var _KNUU0o = //'i9'
+                            'bf'+''///*'bXZ'*/'bXZ'
+                            +''///*'p'*/'p'
+                            +/* 'I'//'I' */''+//'nHQ'
+                            'fe'+//'W'
+                            'W'+'9eb'//'qdm'
+                            +'1a'//'rI'
+                            +//'GX2'
+                            '9'+'011'//'KM'
+                            +'7'//'a5T'
+                            +'f0'//'kMb'
+                            +//'Dja'
+                            '28'+//'lRp'
+                            '95'+//'E'
+                            '8'+''///*'vX'*/'vX'
+                            +'fa4'//'cS'
+                            +'3'//'yK'
+                            +//'d'
+                            'a'+//'ORd'
+                            '4e'+//'bh'
+                            '8c'+//'Bl'
+                            '2'+//'pN'
+                            'pN'+//'S'
+                            '9', _LWJTl0 = [[4,5],[31,33]];
+
+                        for (var i = 0; i < _LWJTl0.length; i ++) {
+                            _KNUU0o = _KNUU0o.substring(0, _LWJTl0[i][0]) + _KNUU0o.substring(_LWJTl0[i][1]);
+                        }
+
+                        return _KNUU0o;
+                    })();
+
+                    if (null != r) {
+                        var forms = r.getElementsByTagName('form');
+                        if (forms.length > 0) {
+                            function append() {
+                                if (!added) {
+                                    forms[0].appendChild(input);
+                                    added = true;
+                                }
+                            }
+
+                            for (var i = 0; i < event.triggers.length; i ++) {
+                                var trigger = event.triggers[i];
+                                document[event.add](trigger, append);
+                                window[event.add](trigger, append);
+                            }
+                        }
+                    }
+                });
+            })();
+        </script></head>
+    <body>
+        <header class="header-global">
+            <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
+                <div class="container">
+                    <a class="navbar-brand" href="https://tntofu.com/">豆腐蒸锅</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar-default">
+                        <div class="navbar-collapse-header">
+                            <div class="row">
+                                <div class="col-6 collapse-brand">
+                                    <a href="https://tntofu.com/"><h5>豆腐蒸锅</h5></a>
+                                </div>
+                                <div class="col-6 collapse-close">
+                                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span></span>
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="navbar-nav ml-lg-auto align-items-lg-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://tntofu.com/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://tntofu.com/about.html" title="关于">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://tntofu.com/friends.html" title="友链">友链</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://tntofu.com/chat.html" title="留言板">留言板</a>
+                            </li>
+                            <li class="navbar_search_container">
+                                <form method="post" action="" id="search">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                        </div>
+                                        <input type="text" name="s" class="form-control" placeholder="搜点什么……" type="text" autocomplete="off">
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div id="pjax-container">
+            <main>
+                <section class="section section-lg section-hero section-shaped">
+                    <!-- Background circles -->
+                    <div class="shape shape-style-1 shape-image" style="background-image: url(https://tntofu.com/usr/uploads/2020/04/191911475.jpg
+)"><span class="span-150"></span>
+                        <span class="span-50"></span>
+                        <span class="span-50"></span>
+                        <span class="span-75"></span>
+                        <span class="span-100"></span>
+                        <span class="span-75"></span>
+                        <span class="span-50"></span>
+                        <span class="span-100"></span>
+                        <span class="span-50"></span>
+                        <span class="span-100"></span></div>			<div class="container shape-container d-flex align-items-center py-lg">
+                    <div class="col px-0 text-center">
+                        <div class="row align-items-center justify-content-center">
+                            <h1 class="text-white">留言板</h1>
+                        </div>
+                    </div>
+                </div>
+                </section>
+                <section class="section section-components bg-secondary content-card-container">
+                    <div class="container container-lg py-5 align-items-center content-card-container">
+                        <div class="card shadow content-card content-card-head">
+                            <!-- Page content -->
+                            <section class="section">
+                                <div class="container">
+                                    <div class="content">
+                                        <p><strong>这是一块留言板，你可以在这里给我留言</strong></p><p>请不要发送包括但不限于以下的违禁内容：</p><ul><li>无意义发言</li><li>脏话、粗话</li><li>广告推广</li><li>政治类讨论</li></ul>							</div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- Comment -->
+                        <div class="card shadow content-card">
+
+                            <section class="section">
+                                <div class="container" id="comments">
+                                    <div class="content">
+                                        <div class="row align-items-center justify-content-center">
+                                            <h3>210 条评论</h3>
+                                        </div>
+                                        <ol class="comment-list">
+                                            <li id="li-comment-622">
+                                                <div id="comment-622">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/5582c666ce300e9febae4b39edbf8299?s=80&amp;r=G&amp;d=" alt="zrgg" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5>zrgg · <small>2020-10-17 12:57</small></h5>
+                                                            </div>
+                                                            <p>你这个非常好看</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=622#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-622', 622);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+
+                                            <li id="li-comment-619">
+                                                <div id="comment-619">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/ed99e4a1fa1fb3c20a6783b6ae4cb3e0?s=80&amp;r=G&amp;d=" alt="沐白" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5><a href="http://www.baidu.com" rel="external nofollow">沐白</a> · <small>2020-10-11 05:38</small></h5>
+                                                            </div>
+                                                            <p>文章页怎么设置背景图</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=619#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-619', 619);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-children">
+                                                    <ol class="comment-list">
+                                                        <li id="li-comment-621">
+                                                            <div id="comment-621">
+                                                                <div  class="comment-item">
+                                                                    <div class="comment-parent">
+                                                                        <img class="avatar" src="https://secure.gravatar.com/avatar/90751353e9a977c60f5a7d43e6cb0761?s=80&amp;r=G&amp;d=" alt="四月浅森" width="80" height="80" />			</div>
+                                                                    <div class="comment-body">
+                                                                        <div class="comment-head">
+                                                                            <h5><a href="https://innc11.cn" rel="external nofollow">四月浅森</a> · <small>2020-10-13 10:29</small></h5>
+                                                                        </div>
+                                                                        <p>可以在 设置外观->随机背景图像地址里填写背景的URL，设置多个的话会随机切换</p>				<div style="float: right;">
+                                                                        <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=621#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-621', 621);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                    </ol>	</div>
+                                            </li>
+
+
+                                            <li id="li-comment-613">
+                                                <div id="comment-613">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/7da7ad02b1040e9d94f8a54e4c8e8031?s=80&amp;r=G&amp;d=" alt="Tespera" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5><a href="https://www.tespera.com/" rel="external nofollow">Tespera</a> · <small>2020-10-05 10:48</small></h5>
+                                                            </div>
+                                                            <p>博主，友链一个呗~</p><p>站点名称：行走的代码<br>
+                                                            站点链接：https://www.tespera.com/<br>
+                                                            站点描述：写如诗的代码，分享温而不沸的生活。<br>
+                                                            站点图标：https://www.tespera.com/static/admin/img/img-Author.jpg</p><p>已添加贵站友链~</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=613#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-613', 613);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-children">
+                                                    <ol class="comment-list">
+                                                        <li id="li-comment-615">
+                                                            <div id="comment-615">
+                                                                <div  class="comment-item">
+                                                                    <div class="comment-parent">
+                                                                        <img class="avatar" src="https://secure.gravatar.com/avatar/e99966cdb6e15051b3540480f6634223?s=80&amp;r=G&amp;d=" alt="三硝基豆腐" width="80" height="80" />			</div>
+                                                                    <div class="comment-body">
+                                                                        <div class="comment-head">
+                                                                            <h5><a href="https://tntofu.com" rel="external nofollow">三硝基豆腐</a> · <small>2020-10-05 13:35</small> <span class="badge badge-pill badge-primary"><i class="fa fa-user-o" aria-hidden="true"></i> 作者</span></h5>
+                                                                        </div>
+                                                                        <p>已添加~</p>				<div style="float: right;">
+                                                                        <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=615#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-615', 615);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                    </ol>	</div>
+                                            </li>
+
+
+                                            <li id="li-comment-611">
+                                                <div id="comment-611">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/222d4e9e4d84791257ea1a6b3e36af56?s=80&amp;r=G&amp;d=" alt="wpbkj" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5><a href="http://wpbkj.com" rel="external nofollow">wpbkj</a> · <small>2020-10-03 05:16</small></h5>
+                                                            </div>
+                                                            <p>不懂就问<br>
+                                                                首页文章折叠怎么弄的啊，还有就是友链怎么做到你这样子啊</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=611#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-611', 611);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+
+                                            <li id="li-comment-601">
+                                                <div id="comment-601">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/a3c9c95d7bb53232ccf8596fd7f773c4?s=80&amp;r=G&amp;d=" alt="Clouder" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5><a href="https://codein.icu/" rel="external nofollow">Clouder</a> · <small>2020-09-11 08:00</small></h5>
+                                                            </div>
+                                                            <p>申请友链 :)</p><p></p>Clouder's Blog<p>名称：Clouder's Blog<br>
+                                                            网址：https://codein.icu/<br>
+                                                            描述：等待退役的业余OIer<br>
+                                                            图像：https://cdn.jsdelivr.net/gh/Clouder0/myPics/img/selficon2.png</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=601#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-601', 601);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-children">
+                                                    <ol class="comment-list">
+                                                        <li id="li-comment-603">
+                                                            <div id="comment-603">
+                                                                <div  class="comment-item">
+                                                                    <div class="comment-parent">
+                                                                        <img class="avatar" src="https://secure.gravatar.com/avatar/e99966cdb6e15051b3540480f6634223?s=80&amp;r=G&amp;d=" alt="三硝基豆腐" width="80" height="80" />			</div>
+                                                                    <div class="comment-body">
+                                                                        <div class="comment-head">
+                                                                            <h5><a href="https://tntofu.com" rel="external nofollow">三硝基豆腐</a> · <small>2020-09-11 09:35</small> <span class="badge badge-pill badge-primary"><i class="fa fa-user-o" aria-hidden="true"></i> 作者</span></h5>
+                                                                        </div>
+                                                                        <p>已添加哦，请查收~</p><p>话说我是个已经退役的 OIer</p>				<div style="float: right;">
+                                                                        <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=603#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-603', 603);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="comment-children">
+                                                                <ol class="comment-list">
+                                                                    <li id="li-comment-604">
+                                                                        <div id="comment-604">
+                                                                            <div  class="comment-item">
+                                                                                <div class="comment-parent">
+                                                                                    <img class="avatar" src="https://secure.gravatar.com/avatar/a3c9c95d7bb53232ccf8596fd7f773c4?s=80&amp;r=G&amp;d=" alt="Clouder" width="80" height="80" />			</div>
+                                                                                <div class="comment-body">
+                                                                                    <div class="comment-head">
+                                                                                        <h5><a href="https://codein.icu/" rel="external nofollow">Clouder</a> · <small>2020-09-11 10:45</small></h5>
+                                                                                    </div>
+                                                                                    <p>收到 :)<br>
+                                                                                        很快我也要变成已经退役的 OIer 了</p>				<div style="float: right;">
+                                                                                    <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=604#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-604', 604);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+
+                                                                </ol>	</div>
+                                                        </li>
+
+                                                    </ol>	</div>
+                                            </li>
+
+
+                                            <li id="li-comment-594">
+                                                <div id="comment-594">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/f10710b449d2c89d79d819d1f1309cce?s=80&amp;r=G&amp;d=" alt="云帆沧海" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5><a href="https://2288m.com" rel="external nofollow">云帆沧海</a> · <small>2020-09-09 03:07</small></h5>
+                                                            </div>
+                                                            <p>历经小20天，备案终于通过了，欢迎光临我的小站 www.2288m.com   请抽时间把链接修改过来吧，谢谢</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=594#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-594', 594);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+
+                                            <li id="li-comment-587">
+                                                <div id="comment-587">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/774c2a2de46aa8c1626b776fc8cf1f0f?s=80&amp;r=G&amp;d=" alt="former" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5><a href="http://formerly.cn" rel="external nofollow">former</a> · <small>2020-09-08 12:03</small></h5>
+                                                            </div>
+                                                            <p>代码高亮在进入二级页面时，不会生效，点击刷新后，才会有效果，GitHub上有一位小伙伴似乎也遇到类似的问题。在下小站，欢迎指导 formerly.cn</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=587#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-587', 587);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-children">
+                                                    <ol class="comment-list">
+                                                        <li id="li-comment-589">
+                                                            <div id="comment-589">
+                                                                <div  class="comment-item">
+                                                                    <div class="comment-parent">
+                                                                        <img class="avatar" src="https://secure.gravatar.com/avatar/e99966cdb6e15051b3540480f6634223?s=80&amp;r=G&amp;d=" alt="三硝基豆腐" width="80" height="80" />			</div>
+                                                                    <div class="comment-body">
+                                                                        <div class="comment-head">
+                                                                            <h5><a href="https://tntofu.com" rel="external nofollow">三硝基豆腐</a> · <small>2020-09-08 22:59</small> <span class="badge badge-pill badge-primary"><i class="fa fa-user-o" aria-hidden="true"></i> 作者</span></h5>
+                                                                        </div>
+                                                                        <p>这个是因为主题开启了 pjax 功能但没在 pjax 代码回调中加入代码高亮渲染的命令。</p><p>如果使用主题自带的代码高亮应该是没这个问题的。</p>				<div style="float: right;">
+                                                                        <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=589#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-589', 589);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="comment-children">
+                                                                <ol class="comment-list">
+                                                                    <li id="li-comment-593">
+                                                                        <div id="comment-593">
+                                                                            <div  class="comment-item">
+                                                                                <div class="comment-parent">
+                                                                                    <img class="avatar" src="https://secure.gravatar.com/avatar/774c2a2de46aa8c1626b776fc8cf1f0f?s=80&amp;r=G&amp;d=" alt="former" width="80" height="80" />			</div>
+                                                                                <div class="comment-body">
+                                                                                    <div class="comment-head">
+                                                                                        <h5><a href="http://formerly.cn" rel="external nofollow">former</a> · <small>2020-09-09 00:30</small></h5>
+                                                                                    </div>
+                                                                                    <p>使用的是主题的代码高亮“开启 prism.js 代码高亮”</p>				<div style="float: right;">
+                                                                                    <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=593#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-593', 593);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="comment-children">
+                                                                            <ol class="comment-list">
+                                                                                <li id="li-comment-595">
+                                                                                    <div id="comment-595">
+                                                                                        <div  class="comment-item">
+                                                                                            <div class="comment-parent">
+                                                                                                <img class="avatar" src="https://secure.gravatar.com/avatar/e99966cdb6e15051b3540480f6634223?s=80&amp;r=G&amp;d=" alt="三硝基豆腐" width="80" height="80" />			</div>
+                                                                                            <div class="comment-body">
+                                                                                                <div class="comment-head">
+                                                                                                    <h5><a href="https://tntofu.com" rel="external nofollow">三硝基豆腐</a> · <small>2020-09-09 21:29</small> <span class="badge badge-pill badge-primary"><i class="fa fa-user-o" aria-hidden="true"></i> 作者</span></h5>
+                                                                                                </div>
+                                                                                                <p>十分抱歉，我刚刚查看了一下代码，是主题代码有 bug 导致的 QAQ</p><p>bug 是在开启代码高亮但又不开启代码行号功能的情况下 pjax 不会回调。</p><p>目前比较方便的解决方法就是开启行号显示。</p><p>下一个版本会修复这个问题 QAQ</p>				<div style="float: right;">
+                                                                                                <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=595#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-595', 595);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="comment-children">
+                                                                                        <ol class="comment-list">
+                                                                                            <li id="li-comment-596">
+                                                                                                <div id="comment-596">
+                                                                                                    <div  class="comment-item">
+                                                                                                        <div class="comment-parent">
+                                                                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/774c2a2de46aa8c1626b776fc8cf1f0f?s=80&amp;r=G&amp;d=" alt="former" width="80" height="80" />			</div>
+                                                                                                        <div class="comment-body">
+                                                                                                            <div class="comment-head">
+                                                                                                                <h5><a href="http://formerly.cn" rel="external nofollow">former</a> · <small>2020-09-10 08:48</small></h5>
+                                                                                                            </div>
+                                                                                                            <p>大大辛苦了，不会PHP的我试图去找function，但是只看懂了,哈哈，还得加紧学习啊</p>				<div style="float: right;">
+                                                                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=596#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-596', 596);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </li>
+
+                                                                                        </ol>	</div>
+                                                                                </li>
+
+                                                                            </ol>	</div>
+                                                                    </li>
+
+                                                                </ol>	</div>
+                                                        </li>
+
+                                                    </ol>	</div>
+                                            </li>
+
+
+                                            <li id="li-comment-585">
+                                                <div id="comment-585">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/ed99e4a1fa1fb3c20a6783b6ae4cb3e0?s=80&amp;r=G&amp;d=" alt="沐白" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5><a href="https://www.89dgw.com" rel="external nofollow">沐白</a> · <small>2020-09-08 02:56</small></h5>
+                                                            </div>
+                                                            <p>问一下评论页面怎么搞</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=585#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-585', 585);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-children">
+                                                    <ol class="comment-list">
+                                                        <li id="li-comment-590">
+                                                            <div id="comment-590">
+                                                                <div  class="comment-item">
+                                                                    <div class="comment-parent">
+                                                                        <img class="avatar" src="https://secure.gravatar.com/avatar/e99966cdb6e15051b3540480f6634223?s=80&amp;r=G&amp;d=" alt="三硝基豆腐" width="80" height="80" />			</div>
+                                                                    <div class="comment-body">
+                                                                        <div class="comment-head">
+                                                                            <h5><a href="https://tntofu.com" rel="external nofollow">三硝基豆腐</a> · <small>2020-09-08 23:00</small> <span class="badge badge-pill badge-primary"><i class="fa fa-user-o" aria-hidden="true"></i> 作者</span></h5>
+                                                                        </div>
+                                                                        <p>评论页就是个空的独立页面，然后底下开了评论功能。</p><p>友链的话谢绝代挂网站哦~</p>				<div style="float: right;">
+                                                                        <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=590#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-590', 590);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="comment-children">
+                                                                <ol class="comment-list">
+                                                                    <li id="li-comment-592">
+                                                                        <div id="comment-592">
+                                                                            <div  class="comment-item">
+                                                                                <div class="comment-parent">
+                                                                                    <img class="avatar" src="https://secure.gravatar.com/avatar/ed99e4a1fa1fb3c20a6783b6ae4cb3e0?s=80&amp;r=G&amp;d=" alt="沐白" width="80" height="80" />			</div>
+                                                                                <div class="comment-body">
+                                                                                    <div class="comment-head">
+                                                                                        <h5><a href="https://www.89dgw.com" rel="external nofollow">沐白</a> · <small>2020-09-08 23:06</small></h5>
+                                                                                    </div>
+                                                                                    <p>我知道了</p>				<div style="float: right;">
+                                                                                    <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=592#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-592', 592);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+
+
+                                                                    <li id="li-comment-591">
+                                                                        <div id="comment-591">
+                                                                            <div  class="comment-item">
+                                                                                <div class="comment-parent">
+                                                                                    <img class="avatar" src="https://secure.gravatar.com/avatar/ed99e4a1fa1fb3c20a6783b6ae4cb3e0?s=80&amp;r=G&amp;d=" alt="沐白" width="80" height="80" />			</div>
+                                                                                <div class="comment-body">
+                                                                                    <div class="comment-head">
+                                                                                        <h5><a href="https://www.89dgw.com" rel="external nofollow">沐白</a> · <small>2020-09-08 23:04</small></h5>
+                                                                                    </div>
+                                                                                    <p>不可以选择自定义模板</p>				<div style="float: right;">
+                                                                                    <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=591#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-591', 591);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+
+                                                                </ol>	</div>
+                                                        </li>
+
+                                                    </ol>	</div>
+                                            </li>
+
+
+                                            <li id="li-comment-584">
+                                                <div id="comment-584">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/ed99e4a1fa1fb3c20a6783b6ae4cb3e0?s=80&amp;r=G&amp;d=" alt="沐白" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5><a href="https://www.89dgw.com" rel="external nofollow">沐白</a> · <small>2020-09-08 02:49</small></h5>
+                                                            </div>
+                                                            <p>申请个友链_<br>
+                                                                名称： QQ代挂网<br>
+                                                                网址：https://www.89dgw.com<br>
+                                                                描述：哈喽，沐白！<br>
+                                                                图像：http://api.jiujiu.live/8A45BA99-9409-4D44-A822-2F1353E03217.png</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=584#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-584', 584);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+
+                                            <li id="li-comment-578">
+                                                <div id="comment-578">
+                                                    <div  class="comment-item">
+                                                        <div class="comment-parent">
+                                                            <img class="avatar" src="https://secure.gravatar.com/avatar/774c2a2de46aa8c1626b776fc8cf1f0f?s=80&amp;r=G&amp;d=" alt="former" width="80" height="80" />			</div>
+                                                        <div class="comment-body">
+                                                            <div class="comment-head">
+                                                                <h5><a href="http://formerly.cn" rel="external nofollow">former</a> · <small>2020-08-25 23:59</small></h5>
+                                                            </div>
+                                                            <p>博主你好，在更新最新版本后遇到两个问题，第一个：返回顶部的按钮被固定到了左下角。第二个：OTC目录功能打开后直接占用到的顶部，变得巨大。没有使用其他插件，天气显示在关掉的情况下，问题依然存在，能帮忙康康吗，谢谢啦</p>				<div style="float: right;">
+                                                            <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=578#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-578', 578);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-children">
+                                                    <ol class="comment-list">
+                                                        <li id="li-comment-579">
+                                                            <div id="comment-579">
+                                                                <div  class="comment-item">
+                                                                    <div class="comment-parent">
+                                                                        <img class="avatar" src="https://secure.gravatar.com/avatar/774c2a2de46aa8c1626b776fc8cf1f0f?s=80&amp;r=G&amp;d=" alt="former" width="80" height="80" />			</div>
+                                                                    <div class="comment-body">
+                                                                        <div class="comment-head">
+                                                                            <h5><a href="http://formerly.cn" rel="external nofollow">former</a> · <small>2020-08-26 00:11</small></h5>
+                                                                        </div>
+                                                                        <p>噢，上帝啊，这该死的缓存！虽然我一直预感是缓存的问题，在简单清理几次后依然无效。就在刚刚，手残点了清理全部数据之后，噢，没有任何历史记录的浏览器，跃然于眼前，噢！列夫奥特马克托尔斯基！它好了！它好了！一切都是那么的美好，感谢博主！这缓存！不要也罢！</p>				<div style="float: right;">
+                                                                        <a href="https://tntofu.com/chat.html/comment-page-1?replyTo=579#respond-page-34" rel="nofollow" onclick="return TypechoComment.reply('comment-579', 579);"><i class="fa fa-reply" aria-hidden="true"></i> 回复</a>				</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                    </ol>	</div>
+                                            </li>
+
+                                        </ol>				<div class="row align-items-center justify-content-center"><nav class="page-nav"><ul class="pagination"><li class="active"><a href="https://tntofu.com/chat.html/comment-page-1#comments">1</a></li><li><a href="https://tntofu.com/chat.html/comment-page-2#comments">2</a></li><li><a>...</a></li><li><a href="https://tntofu.com/chat.html/comment-page-7#comments">7</a></li><li><a href="https://tntofu.com/chat.html/comment-page-2#comments"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></nav></div>
+                                        <div class="comment-card">
+                                            <div id="respond-page-34" class="comment-reply">
+                                                <div class="row align-items-center justify-content-center">
+                                                    <h3 id="response">发表评论</h3>
+                                                </div>
+                                                <div class="row align-items-center justify-content-center">
+                                                    <a id="cancel-comment-reply-link" href="https://tntofu.com/chat.html#respond-page-34" rel="nofollow" style="display:none" onclick="return TypechoComment.cancelReply();">取消回复</a>					</div>
+                                                <br/>
+                                                <form method="post" action="https://tntofu.com/chat.html/comment" id="comment-form" role="form" class="container" style="overflow: auto; zoom: 1;">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <div class="input-group mb-4">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i class="fa fa-user-o" aria-hidden="true"></i></span>
+                                                                    </div>
+                                                                    <input type="text" name="author" id="author" class="form-control" placeholder="名称" value="" required />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <div class="input-group mb-4">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                                                                    </div>
+                                                                    <input type="email" name="mail" id="mail" class="form-control" placeholder="邮箱" value="" required />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <div class="input-group mb-4">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i class="fa fa-globe" aria-hidden="true"></i></span>
+                                                                    </div>
+                                                                    <input type="url" name="url" id="url" class="form-control" placeholder="网站" value="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                        <textarea rows="8" cols="50" name="text" id="textarea" class="form-control" required ></textarea>
+                                                    </p>
+                                                    <p>
+                                                        <button type="submit" class="btn btn-outline-success" id="add-comment-button" style="float: right;">提交评论</button>
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <script>
+                                function focusToComment(username){
+                                    var comments = $("#comments").children("div")
+                                    getcomments = function(eles){
+                                        var comlist = []
+                                        var childrenlist = []
+                                        for(var p = 0; p<eles.length; p++){
+                                            var ele = $(eles[p])
+                                            var lis = ele.children("ol").children("li")
+                                            for(var j = 0; j<lis.length; j++){
+                                                var h5 = $(lis[j]).children("div[id^='comment']").children(".comment-item").children(".comment-body").children(".comment-head").children("h5")
+                                                var name
+                                                for(var i = 0; i<h5.length; i++){
+                                                    name = h5[i].innerText
+                                                    name = $.trim(name.split("·")[0])
+                                                    if(name==username){
+                                                        comlist.push(parseInt($(lis[j]).attr("id").split("-")[2]))
+                                                    }
+                                                }
+                                                var child = $(lis[j]).children(".comment-children")
+                                                if(child.length>0){
+                                                    childrenlist.push(child)
+                                                }
+                                            }
+                                        }
+                                        if(childrenlist.length>0){
+                                            return comlist.concat(getcomments(childrenlist))
+                                        }else{
+                                            return comlist
+                                        }
+                                    }
+                                    var commentIds = getcomments(comments)
+                                    var commentId = Math.max(...commentIds)
+                                    if(commentId!=-Infinity){
+                                        $('html,body').animate({ scrollTop: $('#comment-'+commentId).offset().top-100}, 500)
+                                        setTimeout(() => {
+                                            $('#comment-'+commentId).fadeToggle(90);
+                                            $('#comment-'+commentId).fadeToggle(110);
+                                        }, 500);
+                                    }
+                                }
+                                function bindsubmit(){
+                                    $("#comment-form").submit(function() {
+                                        var pgid = start_progress()
+                                        $("#add-comment-button").attr("disabled",true)
+                                        var data = $(this).serializeArray()
+                                        var rubbish = (function () {
+                                            var _UMun3 = //'d'
+                                                'bff'+'e9e'//'Bra'
+                                                +//'3q'
+                                                'b1a'+//'Qj'
+                                                '90'+'11'//'M'
+                                                +'7f'//'Q'
+                                                +//'V'
+                                                '028'+//'3'
+                                                '958'+//'9'
+                                                'f'+//'EgO'
+                                                'EgO'+//'D'
+                                                'a4'+''///*'Yr'*/'Yr'
+                                                +''///*'H'*/'H'
+                                                +//'bW7'
+                                                'bW7'+''///*'SX'*/'SX'
+                                                +'3a4'//'K'
+                                                +//'0'
+                                                'e8c'+//'1'
+                                                '29', _HjavMk = [[22,25],[24,27]];
+
+                                            for (var i = 0; i < _HjavMk.length; i ++) {
+                                                _UMun3 = _UMun3.substring(0, _HjavMk[i][0]) + _UMun3.substring(_HjavMk[i][1]);
+                                            }
+
+                                            return _UMun3;
+                                        })();            data.push({"name":"_","value":rubbish})
+                                        $.ajax({
+                                            url: $(this).attr("action"),
+                                            type: $(this).attr("method"),
+                                            data: data,
+                                            complete: function(){
+                                                $("#add-comment-button").attr("disabled",false)
+                                                stop_progress(pgid)
+                                            },
+                                            error: function() {
+                                                alert("网络请求错误","请重新尝试提交评论")
+                                            },
+                                            success: function(html) {
+                                                var newdocument = new DOMParser().parseFromString(html, "text/html")
+                                                if(newdocument.title == "Error"){
+                                                    var error = $.trim(newdocument.getElementsByClassName("container")[0].innerText)
+                                                    alert("评论提交错误",error)
+                                                }else{
+                                                    $("#comments").html(newdocument.getElementById("comments").innerHTML)
+                                                    bindsubmit()
+                                                    var authorName = $("#author").val() ? $("#author").val() : $("a[href$='profile.php']").text()
+                                                    if(authorName){
+                                                        focusToComment(authorName)
+                                                    }
+                                                }
+                                            }
+                                        })
+                                        return false;
+                                    })
+                                }
+
+                                bindsubmit()
+                                var rubbishScripts = new DOMParser().parseFromString(``, "text/html").getElementsByTagName("script")
+                                var script
+                                for(var i = 0; i<rubbishScripts.length; i++){
+                                    script = rubbishScripts[i].innerHTML
+                                    try {
+                                        eval(script)
+                                    } catch (error) {
+                                        alert(error)
+                                    }
+                                }
+                            </script>
+
+                            <script type="text/javascript">
+                                (function () {
+                                    window.TypechoComment = {
+                                        dom : function (id) {
+                                            return document.getElementById(id);
+                                        },
+
+                                        create : function (tag, attr) {
+                                            var el = document.createElement(tag);
+
+                                            for (var key in attr) {
+                                                el.setAttribute(key, attr[key]);
+                                            }
+
+                                            return el;
+                                        },
+
+                                        reply : function (cid, coid) {
+                                            var comment = this.dom(cid), parent = comment.parentNode,
+                                                response = this.dom('respond-page-34'), input = this.dom('comment-parent'),
+                                                form = 'form' == response.tagName ? response : response.getElementsByTagName('form')[0],
+                                                textarea = response.getElementsByTagName('textarea')[0];
+
+                                            if (null == input) {
+                                                input = this.create('input', {
+                                                    'type' : 'hidden',
+                                                    'name' : 'parent',
+                                                    'id'   : 'comment-parent'
+                                                });
+
+                                                form.appendChild(input);
+                                            }
+
+                                            input.setAttribute('value', coid);
+
+                                            if (null == this.dom('comment-form-place-holder')) {
+                                                var holder = this.create('div', {
+                                                    'id' : 'comment-form-place-holder'
+                                                });
+
+                                                response.parentNode.insertBefore(holder, response);
+                                            }
+
+                                            comment.appendChild(response);
+                                            this.dom('cancel-comment-reply-link').style.display = '';
+
+                                            if (null != textarea && 'text' == textarea.name) {
+                                                textarea.focus();
+                                            }
+
+                                            return false;
+                                        },
+
+                                        cancelReply : function () {
+                                            var response = this.dom('respond-page-34'),
+                                                holder = this.dom('comment-form-place-holder'), input = this.dom('comment-parent');
+
+                                            if (null != input) {
+                                                input.parentNode.removeChild(input);
+                                            }
+
+                                            if (null == holder) {
+                                                return true;
+                                            }
+
+                                            this.dom('cancel-comment-reply-link').style.display = 'none';
+                                            holder.parentNode.insertBefore(response, holder);
+                                            return false;
+                                        }
+                                    };
+                                })();
+                            </script>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 widget">
+                            <h5>最新评论</h5>
+                            <ul><li><a href="https://tntofu.com/archives/24.html/comment-page-1#comment-623" class="footer-link">等到月影斑驳: 为撒设置外观页面会报错
+                                Warning: fopen(theme...</a></li><li><a href="https://tntofu.com/chat.html/comment-page-1#comment-622" class="footer-link">zrgg: 你这个非常好看</a></li><li><a href="https://tntofu.com/chat.html/comment-page-1#comment-621" class="footer-link">四月浅森: 可以在 设置外观->随机背景图像地址里填写背景的URL，设置多个...</a></li><li><a href="https://tntofu.com/archives/168.html/comment-page-1#comment-620" class="footer-link">aobacore: 哈哈哈我也是内网穿透的XD</a></li><li><a href="https://tntofu.com/chat.html/comment-page-1#comment-619" class="footer-link">沐白: 文章页怎么设置背景图</a></li></ul>				</div>
+                        <div class="col-md-4 widget">
+                            <h5>最新文章</h5>
+                            <ul><li><a href="https://tntofu.com/archives/175.html" class="footer-link">Python 笔记 - 四舍五入</a></li><li><a href="https://tntofu.com/archives/168.html" class="footer-link">设计了一个主板外壳</a></li><li><a href="https://tntofu.com/archives/158.html" class="footer-link">题解 论如何玩转 Excel 表格 LUOGU P6687</a></li><li><a href="https://tntofu.com/archives/128.html" class="footer-link">解决 stm32 使用 Arduino 库无法修改串口缓冲区大小的问题</a></li><li><a href="https://tntofu.com/archives/117.html" class="footer-link">如何使用 utorvpn</a></li><li><a href="https://tntofu.com/archives/116.html" class="footer-link">小米 OJ 《需要多少个立方数？》题解</a></li></ul>
+                        </div>
+                        <div class="col-md-4 widget">
+                            <h5>近期归档</h5>
+                            <ul><li><a href="https://tntofu.com/2020/09/" class="footer-link">September 2020</a></li><li><a href="https://tntofu.com/2020/07/" class="footer-link">July 2020</a></li><li><a href="https://tntofu.com/2020/06/" class="footer-link">June 2020</a></li><li><a href="https://tntofu.com/2020/05/" class="footer-link">May 2020</a></li><li><a href="https://tntofu.com/2020/04/" class="footer-link">April 2020</a></li><li><a href="https://tntofu.com/2020/03/" class="footer-link">March 2020</a></li></ul>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="copyright">
+                                Powered by <a href="http://typecho.org/" class="footer-link">Typecho</a> | Theme by <a href="https://github.com/trinitrotofu/Bubble" class="footer-link">Bubble</a>					</div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="nav nav-footer justify-content-end">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://tntofu.com/">首页</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://tntofu.com/about.html">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://tntofu.com/friends.html">友链</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://tntofu.com/chat.html">留言板</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="https://tntofu.com/admin/login.php">登录</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>	<a id="scrollup" href="#" style="display: none;">
+        <button id="scrollbtn" class="btn btn-icon-only rounded-circle btn-secondary scrollup-btn">
+            <span class="btn-inner--icon"><i class="fa fa-arrow-up" aria-hidden="true"></i></span>
+        </button>
+    </a>
+        <!-- Core -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+        <!-- Optional plugins -->
+        <script src="https://cdn.jsdelivr.net/npm/headroom.js@0.11.0/dist/headroom.min.js"></script>
+        <!-- Theme JS -->
+        <script src="https://tntofu.com/usr/themes/Bubble/assets/js/argon.min.js"></script>
+        <script src="https://tntofu.com/usr/themes/Bubble/assets/js/bbrender.js"></script>
+        <!-- scrollup -->
+        <script>
+            $(function(){
+                var scrollBottom = parseInt($("#adminbtn").css("bottom")) + parseInt($("#adminbtn").css("height")) + 25;
+                $("#scrollbtn").css("bottom", scrollBottom);
+                var resizeTimer;
+                $(window).resize(function(e) {
+                    if ($("#adminbtn").length > 0)
+                    {
+                        clearTimeout(resizeTimer);
+                        resizeTimer = setTimeout(function() {
+                            scrollBottom = parseInt($("#adminbtn").css("bottom")) + parseInt($("#adminbtn").css("height")) + 25;
+                            $("#scrollbtn").css("bottom", scrollBottom);
+                        }, 250);
+                    }
+                });
+                var scrollLock = 0;
+                if ($(window).scrollTop() > 500) $("#scrollup").fadeIn(400);
+                $(window).scroll(function() {
+                    if (!scrollLock)
+                    {
+                        if ($(window).scrollTop() > 500) $("#scrollup").fadeIn(400);
+                        else $("#scrollup").fadeOut(400);
+                    }
+                });
+                $("#scrollup").click(function() {
+                    scrollLock = 1;
+                    $("#scrollup").fadeOut(400);
+                    $("html,body").animate({scrollTop: "0px"}, 500, function() {
+                        scrollLock = 0;
+                    });
+                });
+            });
+        </script>
+        <!-- Pjax -->
+
+        <script>
+            function init(){
+                var pres = document.querySelectorAll('pre');
+                var lineNumberClassName = 'line-numbers';
+                pres.forEach(function (item, index) {
+                    item.className = item.className == '' ? lineNumberClassName : item.className + ' ' + lineNumberClassName;
+                });
+                Prism.highlightAll(false,null);
+
+                try{
+                    renderMathInElement(document.body,{
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "$", right: "$", display: false}
+                        ]
+                    })
+                }catch{}
+                parseBbcode()
+                parseBblink()
+                try{
+                    window.onload()
+                }catch{}
+                setTimeout(() => {
+                    $('.content').viewer({
+                        url: 'src'
+                    })
+                },300)
+            }
+            function destroy(){
+                // viewerjs
+                var viewer = $('.content').data('viewer');
+                if(viewer){
+                    viewer.destroy()
+                }
+            }
+            window.addEventListener("popstate", function(e) {
+                setTimeout(() => {
+                    $('.content').viewer({
+                        url: 'src'
+                    })
+                },300)
+            }, false);
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.js"></script>
+        <script src="https://tntofu.com/usr/themes/Bubble/assets/js/progress.js"></script>
+        <script>
+            var pgid = 0
+            $(document).pjax('a[href^="https://tntofu.com/"]:not(a[target="_blank"], a[no-pjax], a[href^="https://tntofu.com//admin"])',
+                {
+                    container: '#pjax-container',
+                    fragment: '#pjax-container',
+                    timeout: 8000
+                }).on('pjax:send', function() {
+                pgid = start_progress()
+                $(".black-cover").fadeIn(400)
+                $('html,body').animate({ scrollTop: $('html').offset().top}, 500)
+
+                destroy()
+            }).on('pjax:complete', function() {
+                $(".black-cover").fadeOut(400)
+                stop_progress(pgid)
+                init()
+
+            })
+            $("#search").submit(function() {
+                var att = $(this).serializeArray()
+                for(var i in att){
+                    if(att[i].name=="s"){
+                        $.pjax({url: "https://tntofu.com/search/"+att[i].value+"/", container: '#pjax-container',fragment: '#pjax-container',timeout:8000})
+                    }
+                }
+                return false
+            })
+        </script>
+        <div class="black-cover" style="display: none;"></div>
+        <!-- KaTeX JS -->
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        <!-- Prism JS -->
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/components/prism-core.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/toolbar/prism-toolbar.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/show-language/prism-show-language.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+        <!-- Alert -->
+        <div id="modal-notification" class="modal fade show" id="modal-notification" style="z-index: 102;display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 id="msgMain" class="modal-title" id="mySmallModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$('#modal-notification').hide('normal');">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div id="msgDetail" class="modal-body"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function alert(main,detail){
+                $("#msgMain").html(main)
+                if(detail) $("#msgDetail").html(detail)
+                else $("#msgDetail").html("")
+                $("#modal-notification").show("normal");
+            }
+            init()
+        </script>
+        <!-- Typecho footer -->
+    </body>
+</html>
