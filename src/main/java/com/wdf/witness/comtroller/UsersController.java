@@ -40,7 +40,6 @@ public class UsersController {
     @ApiOperation(value = "条件查找用户", produces = StatusCode.APPLICATION_JSON_UTF8_VALUE, httpMethod = "GET",response = Result.class)
     @GetMapping("/findUser")
     public Result findOne(@RequestBody SelectUsersReqDto selectUsersReqDto){
-        System.out.println(EmptyUtil.isEmpty(selectUsersReqDto));
         //uid和name不能同时为空
         if (EmptyUtil.isEmpty(selectUsersReqDto)) {
             return new Result(false,StatusCode.ISEMPTY,"查询的内容为空");
@@ -50,7 +49,7 @@ public class UsersController {
         return new Result(true, StatusCode.OK,StatusCode.select,user);
     }
 
-    @ApiOperation(value = "新增用户", produces = StatusCode.APPLICATION_JSON_UTF8_VALUE, httpMethod = "GET",response = Result.class)
+    @ApiOperation(value = "新增用户", produces = StatusCode.APPLICATION_JSON_UTF8_VALUE, httpMethod = "POST",response = Result.class)
     @PostMapping("/addUser")
     public Result addUser(@RequestBody Users user){
 
@@ -67,7 +66,7 @@ public class UsersController {
         return new Result(false,StatusCode.LOGINERROR,"id自增，传入id应为空");
     }
 
-    @ApiOperation(value = "更新用户", produces = StatusCode.APPLICATION_JSON_UTF8_VALUE, httpMethod = "GET",response = Result.class)
+    @ApiOperation(value = "更新用户", produces = StatusCode.APPLICATION_JSON_UTF8_VALUE, httpMethod = "PUT",response = Result.class)
     @PutMapping("/updateUser")
     public Result updateUser(@RequestBody UpdateUsersReqDto updateUsersReqDto){
 
@@ -78,7 +77,7 @@ public class UsersController {
         return new Result(true,StatusCode.OK,StatusCode.update);
     }
 
-    @ApiOperation(value = "删除用户", produces = StatusCode.APPLICATION_JSON_UTF8_VALUE, httpMethod = "GET",response = Result.class)
+    @ApiOperation(value = "删除用户", produces = StatusCode.APPLICATION_JSON_UTF8_VALUE, httpMethod = "DELETE",response = Result.class)
     @DeleteMapping("deleteUser/{id}")
     public Result deleteUser(@PathVariable Integer id){
 

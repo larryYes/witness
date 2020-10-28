@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wdf.witness.dao.ContentsDao">
+
+    <!--查询所有文章-->
+<!--    <select id="findAll" resultType="com.wdf.witness.entity.Contents">
+        select cid,`title`,tid,created, from users
+    </select>-->
+
+    <!--条件查询：根据'文章标题、标签id、文章内容'条件查询任一文章-->
+    <select id="findOne" resultType="com.wdf.witness.entity.Contents">
+        select cid,title,text,keywords from contents
+
+        <where>
+            <if test="title!=null">and `title` like '%${title}%'</if>
+            <if test="keywords!=null">and `keywords` like '%${keywords}%'</if>
+            <if test="text!=null">and `text` like '%${text}%'</if>
+        </where>
+
+    </select>
+
+
+    <!--新增用户  用户id自增-->
+    <insert id="addContent" parameterType="com.wdf.witness.entity.Contents" useGeneratedKeys="true" keyProperty="id">
+        insert into users(cid,`title`,created,text,uid,doneDate,keywords)
+        values (#{cid},#{title},#{created},#{text},#{uid},#{doneDate},#{keywords})
+    </insert>
+
+    <update id="updateContent" parameterType="com.wdf.witness.entity.Contents">
+        update contents
+        <set>
+            <if test="title != null">`title` = #{title}, </if>
+            <if test="text != null">`text` = #{text}, </if>
+            <if test="doneDate != null">`doneDate` = #{doneDate}, </if>
+        </set>
+        where cid = #{cid}
+    </update>
+
+    <delete id="removeContent">
+		delete from contents where cid = #{cid}
+	</delete>
+
+</mapper>
