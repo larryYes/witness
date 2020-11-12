@@ -26,6 +26,12 @@ public interface ContentsDao {
     List<Contents> findOne(SelectContentsReqDto selectContentsReqDto);
 
     /**
+     * 查询所有文章标题
+     * @return
+     */
+    List<Contents> findAllTitle();
+
+    /**
      * 新增文章
      * @param content
      */

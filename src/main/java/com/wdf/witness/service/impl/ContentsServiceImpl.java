@@ -28,6 +28,10 @@ public class ContentsServiceImpl implements ContentsService {
     }
 
     @Override
+    public List<Contents> findAllTitle(){
+        return contentsDao.findAllTitle();
+    }
+    @Override
     public void updateContent(UpdateContentsReqDto updateContentsReqDto){
         contentsDao.updateContent(updateContentsReqDto);
     }

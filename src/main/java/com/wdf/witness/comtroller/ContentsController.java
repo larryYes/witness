@@ -35,6 +35,11 @@ public class ContentsController {
         List<Contents> contents = contentsService.findOne(selectContentsReqDto);
         return new Result(true, StatusCode.OK,StatusCode.select,contents);
     }
+    @GetMapping("/findAllTitle")
+    public Result findAllTitle(){
+        List<Contents> contentsTitle = contentsService.findAllTitle();
+        return new Result(true,StatusCode.OK,StatusCode.select,contentsTitle);
+    }
 
     @ApiOperation(value = "新增文章", produces = StatusCode.APPLICATION_JSON_UTF8_VALUE, httpMethod = "POST",response = Result.class)
     @PostMapping("/addContent")
