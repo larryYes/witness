@@ -11,7 +11,7 @@
         <!-- FontAwesome -->
         <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <!-- Main CSS -->
-        <link type="text/css" href="./css/main.min.css" rel="stylesheet" />
+        <link type="text/css" href="../static/css/main.min.css" rel="stylesheet" />
         <!-- KaTeX CSS -->
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" />
         <!-- PrismJS CSS -->
@@ -108,14 +108,39 @@
                     <div class="container container-lg py-5 align-items-center content-card-container">
 
                         <!-- Article list -->
-                        <div class="card shadow content-card list-card content-card-head">
+                        <script>
+                            function tryapitest(){
+                                $.ajax({
+                                    url:"http://10.3.73.65:9703/Contents/findAllTitle",
+                                    type:"get",
+                                    dataType:"json",
+                                    success: function(data) {
+                                        for (let i = 0; i < data.data.length; i++) {
+
+
+
+                                            console.log(data.data[i].title);
+                                        }
+                                    },
+                                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                        alert(XMLHttpRequest.status);
+                                        alert(XMLHttpRequest.readyState);
+                                        alert(textStatus);
+                                    },
+                                })
+                            }
+                        </script>
+
+
+
+<!--                        <div class="card shadow content-card list-card content-card-head">
                             <div class="content">
                                 <h1 style="text-align:center"><a class="text-default" href="https://tntofu.com/archives/175.html">你好</a></h1>
-                                   <!-- <span class="list-tag" style="float:right"><i class="fa fa-calendar-o" aria-hidden="true"></i> <time datetime="2020-09-17T11:39:00+08:00">2020-09-17</time></span>
+                                   &lt;!&ndash; <span class="list-tag" style="float:right"><i class="fa fa-calendar-o" aria-hidden="true"></i> <time datetime="2020-09-17T11:39:00+08:00">2020-09-17</time></span>
                                 <a href="https://tntofu.com/archives/117.html"> <button class="btn btn-icon btn-3 btn-outline-primary" type="button"> <span class="btn-inner&#45;&#45;icon"><i class="fa fa-play" aria-hidden="true"></i></span> <span class="btn-inner&#45;&#45;text">打卡记录</span> </button> </a>
--->
+&ndash;&gt;
                             </div>
-                        </div>
+                        </div>-->
 
                         <div class="card shadow content-card list-card ">
                             <div class="content">
@@ -137,105 +162,11 @@
 
 
 
-                       <!--
-                        <div class="card shadow content-card list-card ">
-                            <section class="section">
-                                <div class="container">
-                                    &lt;!&ndash;<div class="content">
-                                        <h1><a class="text-default" href="https://tntofu.com/archives/117.html">如何使用 utorvpn</a></h1>
-                                        <div class="list-object">
-                                            <span class="list-tag"><i class="fa fa-calendar-o" aria-hidden="true"></i> <time datetime="2020-06-02T01:35:00+08:00">2020-06-02</time></span>
-                                            <span class="list-tag"><i class="fa fa-comments-o" aria-hidden="true"></i> 3 条评论</span>
-                                            <span class="list-tag"> <i class="fa fa-folder-o" aria-hidden="true"></i> <a href="https://tntofu.com/category/default/" class="badge badge-info badge-pill">默认分类</a> </span>
-                                            <span class="list-tag"> <i class="fa fa-tags" aria-hidden="true"></i> <a class="badge badge-default badge-pill text-white">无标签</a> </span>
-                                            <span class="list-tag"><i class="fa fa-user-o" aria-hidden="true"></i> <a class="badge badge-warning badge-pill" href="https://tntofu.com/author/1/">三硝基豆腐</a></span>
-                                        </div>
-                                        <p>前几天突然发现多大原来提供了公共 vpn 服务，又有不少同学不知道怎么使用，于是在这里写个教程吧。</p>
-                                        <p>目前只讲 windows 上怎么用，别的平台我懒得写了。</p>
-                                        <p>首先下载思科的 anyconnect</p>
-                                        <p class="more"><a href="https://tntofu.com/archives/117.html" title="如何使用 utorvpn"></a></p>
-                                        <br />
-                                        <a href="https://tntofu.com/archives/117.html"> <button class="btn btn-icon btn-3 btn-outline-primary" type="button"> <span class="btn-inner&#45;&#45;icon"><i class="fa fa-play" aria-hidden="true"></i></span> <span class="btn-inner&#45;&#45;text">继续阅读</span> </button> </a>
-                                    </div>&ndash;&gt;
-                                </div>
-                            </section>
-                        </div>
-                        &lt;!&ndash; Toggle page &ndash;&gt;
-                       <section class="section" style="padding-bottom: 1rem; padding-top: 6rem">
-                            <div class="container">
-                                <nav class="page-nav">
-                                    <ul class="pagination justify-content-center">
-                                        <li class="active"><a href="https://tntofu.com/page/1/">1</a></li>
-                                        <li><a href="https://tntofu.com/page/2/">2</a></li>
-                                        <li><a>...</a></li>
-                                        <li><a href="https://tntofu.com/page/5/">5</a></li>
-                                        <li><a href="https://tntofu.com/page/2/"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </section>
-                        -->
 
                     </div>
                 </section>
             </main>
 
-            <!-- Footer -->
-            <!--<footer class="footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 widget">
-                            <h5>最新评论</h5>
-                            <ul>
-                                <li><a href="https://tntofu.com/archives/24.html/comment-page-1#comment-623" class="footer-link">等到月影斑驳: 为撒设置外观页面会报错 Warning: fopen(theme...</a></li>
-                                <li><a href="https://tntofu.com/chat.html/comment-page-1#comment-622" class="footer-link">zrgg: 你这个非常好看</a></li>
-                                <li><a href="https://tntofu.com/chat.html/comment-page-1#comment-621" class="footer-link">四月浅森: 可以在 设置外观-&gt;随机背景图像地址里填写背景的URL，设置多个...</a></li>
-                                <li><a href="https://tntofu.com/archives/168.html/comment-page-1#comment-620" class="footer-link">aobacore: 哈哈哈我也是内网穿透的XD</a></li>
-                                <li><a href="https://tntofu.com/chat.html/comment-page-1#comment-619" class="footer-link">沐白: 文章页怎么设置背景图</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 widget">
-                            <h5>最新文章</h5>
-                            <ul>
-                                <li><a href="https://tntofu.com/archives/175.html" class="footer-link">Python 笔记 - 四舍五入</a></li>
-                                <li><a href="https://tntofu.com/archives/168.html" class="footer-link">设计了一个主板外壳</a></li>
-                                <li><a href="https://tntofu.com/archives/158.html" class="footer-link">题解 论如何玩转 Excel 表格 LUOGU P6687</a></li>
-                                <li><a href="https://tntofu.com/archives/128.html" class="footer-link">解决 stm32 使用 Arduino 库无法修改串口缓冲区大小的问题</a></li>
-                                <li><a href="https://tntofu.com/archives/117.html" class="footer-link">如何使用 utorvpn</a></li>
-                                <li><a href="https://tntofu.com/archives/116.html" class="footer-link">小米 OJ 《需要多少个立方数？》题解</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 widget">
-                            <h5>近期归档</h5>
-                            <ul>
-                                <li><a href="https://tntofu.com/2020/09/" class="footer-link">September 2020</a></li>
-                                <li><a href="https://tntofu.com/2020/07/" class="footer-link">July 2020</a></li>
-                                <li><a href="https://tntofu.com/2020/06/" class="footer-link">June 2020</a></li>
-                                <li><a href="https://tntofu.com/2020/05/" class="footer-link">May 2020</a></li>
-                                <li><a href="https://tntofu.com/2020/04/" class="footer-link">April 2020</a></li>
-                                <li><a href="https://tntofu.com/2020/03/" class="footer-link">March 2020</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <hr />
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="copyright">
-                                Powered by
-                                <a href="http://typecho.org/" class="footer-link">刘刘</a> | Theme by
-                                <a href="https://github.com/trinitrotofu/Bubble" class="footer-link">Bubble</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="nav nav-footer justify-content-end">
-                                <li class="nav-item"> <a class="nav-link" href="https://tntofu.com/about.html">关于</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="https://tntofu.com/chat.html">留言板</a> </li>
-                                <li class="nav-item"><a class="nav-link" href="https://tntofu.com/admin/login.php">登录</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>-->
         </div>
         <a id="scrollup" href="#" style="display: none;"> <button id="scrollbtn" class="btn btn-icon-only rounded-circle btn-secondary scrollup-btn"> <span class="btn-inner--icon"><i class="fa fa-arrow-up" aria-hidden="true"></i></span> </button> </a>
         <!-- Core -->
@@ -326,6 +257,8 @@
         </script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.js"></script>
         <script src="https://tntofu.com/usr/themes/Bubble/assets/js/progress.js"></script>
+
+
         <script>
             var pgid = 0
             $(document).pjax('a[href^="https://tntofu.com/"]:not(a[target="_blank"], a[no-pjax], a[href^="https://tntofu.com//admin"])',
@@ -388,20 +321,20 @@
             init()
         </script>
         <!-- Typecho footer -->
+
+
         <div>点击按钮获取JSON数据</div>
         <input type="button" id="button" value="确定" onclick="tryapitest()"/>
-        <div id="result"></div>
-
-
-        <script>
+<!--        <script>
             function tryapitest(){
                 $.ajax({
                     url:"http://10.3.73.65:9703/Contents/findAllTitle",
                     type:"get",
                     dataType:"json",
                     success: function(data) {
-                        console.log(data);
-                        console.log("你好");
+                        for (let i = 0; i < data.data.length; i++) {
+                            console.log(data.data[i].cid);
+                        }
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
                         alert(XMLHttpRequest.status);
@@ -410,7 +343,7 @@
                     },
                 })
             }
-        </script>
+        </script>-->
 
 
     </body>
