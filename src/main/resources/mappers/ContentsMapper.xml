@@ -5,7 +5,7 @@
 
     <!--根据ID查询所有文章标题-->
     <select id="findAllTitle" resultType="com.wdf.witness.entity.Contents">
-        select cid,`title` from contents
+        select cid,`title`,text,modified_by,is_done from contents
     </select>
 
     <!--条件查询：根据'文章标题、标签id、文章内容'条件查询任一文章-->

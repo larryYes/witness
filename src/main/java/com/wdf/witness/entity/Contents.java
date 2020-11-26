@@ -2,7 +2,7 @@ package com.wdf.witness.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
+import com.alibaba.fastjson.annotation.JSONField;
 /**
  * @author by liuguangjin
  * @Description TODO
@@ -41,10 +41,15 @@ public class Contents implements Serializable {
     private Integer uid;
 
     /**
-     * 完成日期
+     * 更新日期
      */
-    private Date doneDate;
+    @JSONField(format ="yyyy-MM-dd")
+    private Date modified_by;
 
+    /**
+     * 是否完成
+     */
+    private String is_done;
 
 
     @Override
@@ -52,11 +57,12 @@ public class Contents implements Serializable {
         return "Contents{" +
                 "cid=" + cid +
                 ", title='" + title + '\'' +
-                ", tid=" + keywords +
+                ", keywords='" + keywords + '\'' +
                 ", created=" + created +
                 ", text='" + text + '\'' +
                 ", uid=" + uid +
-                ", doneDate=" + doneDate +
+                ", modified_by=" + modified_by +
+                ", is_done=" + is_done +
                 '}';
     }
 
@@ -108,11 +114,27 @@ public class Contents implements Serializable {
         this.uid = uid;
     }
 
-    public Date getDoneDate() {
-        return doneDate;
+    public String getKeywords() {
+        return keywords;
     }
 
-    public void setDoneDate(Date doneDate) {
-        this.doneDate = doneDate;
+    public Date getModified_by() {
+        return modified_by;
+    }
+
+    public void setModified_by(Date modified_by) {
+        this.modified_by = modified_by;
+    }
+
+    public String getIs_done() {
+        return is_done;
+    }
+
+    public void setIs_done(String is_done) {
+        this.is_done = is_done;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
 }

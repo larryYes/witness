@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>爱在一起</title>
         <!-- Favicon -->
-        <link href="https://s1.ax1x.com/2020/10/21/B9678S.png" rel="icon" type="image/png" />
+        <link href="../static/images/B9678S.png" rel="icon" type="image/png" />
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
         <!-- FontAwesome -->
@@ -26,15 +26,7 @@
         <!-- Viewer.js Plugin -->
         <script src="https://cdn.jsdelivr.net/npm/viewerjs/dist/viewer.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/fengyuanchen/jquery-viewer@master/dist/jquery-viewer.min.js"></script>
-        <!-- Typecho header -->
-        <meta name="description" content="爱在一起" />
-        <meta name="keywords" content="blog,爱情,programming,打卡,code,记录,computer,刘刘菲菲" />
-        <!--<meta name="generator" content="Typecho 1.2/18.1.29" />-->
-        <meta name="template" content="Bubble" />
-        <link rel="pingback" href="https://tntofu.com/action/xmlrpc" />
-        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://tntofu.com/action/xmlrpc?rsd" />
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://tntofu.com/action/xmlrpc?wlw" />
-        <link rel="alternate" type="application/atom+xml" title="相爱100% &raquo; ATOM 1.0" href="https://wdf.link" />
+
     </head>
     <body>
         <header class="header-global">
@@ -93,7 +85,7 @@
                             <div class="row align-items-center justify-content-center">
                                 <div class="col-lg-6 text-center">
                                     <div class="index-avatar-container">
-                                        <img src="https://s1.ax1x.com/2020/10/21/B9ROzT.jpg" class="index-avatar" />
+                                        <img src="https://s3.ax1x.com/2020/11/16/DAUQVU.jpg" class="index-avatar" />
                                     </div>
                                     <h1 class="text-white">刘刘</h1><!--和他的菲菲-->
                                     <hr />
@@ -105,52 +97,28 @@
 
                 </section>
                 <section class="section section-components bg-secondary content-card-container">
-                    <div class="container container-lg py-5 align-items-center content-card-container">
+                    <div id = "vueContents" class="container container-lg py-5 align-items-center content-card-container">
 
                         <!-- Article list -->
-                        <script>
-                            function tryapitest(){
-                                $.ajax({
-                                    url:"http://10.3.73.65:9703/Contents/findAllTitle",
-                                    type:"get",
-                                    dataType:"json",
-                                    success: function(data) {
-                                        for (let i = 0; i < data.data.length; i++) {
 
-
-
-                                            console.log(data.data[i].title);
-                                        }
-                                    },
-                                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                                        alert(XMLHttpRequest.status);
-                                        alert(XMLHttpRequest.readyState);
-                                        alert(textStatus);
-                                    },
-                                })
-                            }
-                        </script>
-
-
-
-<!--                        <div class="card shadow content-card list-card content-card-head">
-                            <div class="content">
-                                <h1 style="text-align:center"><a class="text-default" href="https://tntofu.com/archives/175.html">你好</a></h1>
-                                   &lt;!&ndash; <span class="list-tag" style="float:right"><i class="fa fa-calendar-o" aria-hidden="true"></i> <time datetime="2020-09-17T11:39:00+08:00">2020-09-17</time></span>
-                                <a href="https://tntofu.com/archives/117.html"> <button class="btn btn-icon btn-3 btn-outline-primary" type="button"> <span class="btn-inner&#45;&#45;icon"><i class="fa fa-play" aria-hidden="true"></i></span> <span class="btn-inner&#45;&#45;text">打卡记录</span> </button> </a>
-&ndash;&gt;
-                            </div>
-                        </div>-->
-
-                        <div class="card shadow content-card list-card ">
-                            <div class="content">
-                                <h1 style="text-align:center"><a class="text-default" href="https://tntofu.com/archives/168.html">测试</a></h1>
-                                    <span class="list-tag" style="float:right"><i class="fa fa-calendar-o" aria-hidden="true"></i> <time datetime="2020-07-31T11:22:00+08:00">2020-07-31</time></span>
-                                <a href="https://tntofu.com/archives/117.html"> <button class="btn btn-icon btn-3 btn-outline-primary" type="button"> <span class="btn-inner&#45;&#45;icon"><i class="fa fa-play" aria-hidden="true"></i></span> <span class="btn-inner&#45;&#45;text">打卡记录</span> </button> </a>
-
+                        <div  class="card shadow content-card list-card content-card-head">
+                            <div  class="content">
+                                <h1 style="text-align:center"><a class="text-default" href="https://tntofu.com/archives/175.html">统计完成了多少和多少没完成</a></h1>
+                                   <!-- <span class="list-tag" style="float:right"><i class="fa fa-calendar-o" aria-hidden="true"></i> <time datetime="2020-09-17T11:39:00+08:00">2020-09-17</time></span>
+                                <a href="https://tntofu.com/archives/117.html"> <button class="btn btn-icon btn-3 btn-outline-primary" type="button"> <span class="btn-inner--icon"><i class="fa fa-play" aria-hidden="true"></i></span> <span class="btn-inner--text">打卡记录</span> </button> </a>
+-->
                             </div>
                         </div>
 
+                        <div v-for="content in contents" class="card shadow content-card list-card ">
+                            <div class="content">
+                                <h1 style="text-align:center"><a class="text-default" href="https://tntofu.com/archives/168.html">{{content.title}}</a></h1>
+                                {{content.modifiedBy}}
+                                    <span class="list-tag" style="float:right"><i class="fa fa-calendar-o" aria-hidden="true"></i> <time >2020-20-20</time></span>
+                                <a href="https://tntofu.com/archives/117.html"> <button class="btn btn-icon btn-3 btn-outline-primary" type="button"> <span class="btn-inner&#45;&#45;icon"><i class="fa fa-play" aria-hidden="true"></i></span> <span class="btn-inner&#45;&#45;text">打卡记录</span> </button> </a>
+                            </div>
+                        </div>
+                        <!--
                         <div class="card shadow content-card list-card ">
                             <div class="content">
                                 <h1 style="text-align:center"><a class="text-default" href="https://tntofu.com/archives/168.html">打游戏</a></h1>
@@ -159,15 +127,14 @@
 
                             </div>
                         </div>
-
-
-
-
+                        -->
                     </div>
                 </section>
             </main>
 
         </div>
+
+
         <a id="scrollup" href="#" style="display: none;"> <button id="scrollbtn" class="btn btn-icon-only rounded-circle btn-secondary scrollup-btn"> <span class="btn-inner--icon"><i class="fa fa-arrow-up" aria-hidden="true"></i></span> </button> </a>
         <!-- Core -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -258,7 +225,6 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.js"></script>
         <script src="https://tntofu.com/usr/themes/Bubble/assets/js/progress.js"></script>
 
-
         <script>
             var pgid = 0
             $(document).pjax('a[href^="https://tntofu.com/"]:not(a[target="_blank"], a[no-pjax], a[href^="https://tntofu.com//admin"])',
@@ -299,52 +265,45 @@
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/show-language/prism-show-language.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-        <!-- Alert -->
-        <div id="modal-notification" class="modal fade show" style="z-index: 102;display: none;">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 id="mySmallModalLabel" class="modal-title"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$('#modal-notification').hide('normal');"> <span aria-hidden="true">&times;</span> </button>
-                    </div>
-                    <div id="msgDetail" class="modal-body"></div>
-                </div>
+
+
+<!--        <div>测试前后端：点击按钮获取JSON数据</div>
+        <div id = "vueContents">
+            <div v-for="content in contents">
+                {{content.title}}
             </div>
         </div>
-        <script>
-            function alert(main,detail){
-                $("#msgMain").html(main)
-                if(detail) $("#msgDetail").html(detail)
-                else $("#msgDetail").html("")
-                $("#modal-notification").show("normal");
-            }
-            init()
-        </script>
-        <!-- Typecho footer -->
+        &lt;!&ndash;VUE&ndash;&gt;-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+        <!--Axios-->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#vueContents',
+                mounted(){ //钩子函数 链式编程
+                    axios.get('http://localhost:9703/Contents/findAllTitle')
+                        .then(ret=>(
+                            this.contents = ret.data.data,
+                                console.log(ret.data.data)
 
-
-        <div>点击按钮获取JSON数据</div>
-        <input type="button" id="button" value="确定" onclick="tryapitest()"/>
-<!--        <script>
-            function tryapitest(){
-                $.ajax({
-                    url:"http://10.3.73.65:9703/Contents/findAllTitle",
-                    type:"get",
-                    dataType:"json",
-                    success: function(data) {
-                        for (let i = 0; i < data.data.length; i++) {
-                            console.log(data.data[i].cid);
+                        ))
+                        .catch(function (error) {//请求失败处理
+                            console.log(error)
+                        });
+                },
+                data(){
+                    return {
+                        contents:{
+                            cid: null,
+                            title: null,
+                            text: null,
+                            isDone: null,
+                            modifiedBy: null
                         }
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        alert(XMLHttpRequest.status);
-                        alert(XMLHttpRequest.readyState);
-                        alert(textStatus);
-                    },
-                })
-            }
-        </script>-->
-
+                    }
+                }
+            })
+        </script>
 
     </body>
 </html>
